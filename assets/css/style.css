@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.body-login {
+   background-image: url('/assets/img/fondo.jpg.jpg');
+ } 
+.form-register {
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+.form-login h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+.controls {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+  }
+
+  .form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+  }
+
+  .form-register a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .form-register a:hover {
+    color:white;
+    text-decoration: underline;
+  }
+
+  .form-register .botons {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+
+  .form-login {
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+.form-login h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+.form-login p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.form-login a {
+  color: white;
+  text-decoration: none;
+}
+
+.form-login a:hover {
+  color:white;
+  text-decoration: underline;
+}
+
+.form-login .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.warnings{
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color: #806AB3;
+  padding-top: 20px;
+}
+
+body {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #0575E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+} 
+
+div{
+  background-color: white;
+  border: 1px solid black;
+  padding: 12px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+fieldset{
+  margin-bottom: 12px;
+}
+
+legend{
+  background-color: #74b49b;
+  padding: 5px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.switch {
+    width: 60px;
+    height: 30px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border: #333 solid 2px;
+    background-color: #132b41;
+}
+
+.switch i {
+  font-size: 1rem;
+  color: #fdc21c;
+}
+
+.menu-options li:last-child::before {
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: solid thin #000;
+    left: 0;
+    right: unset;
+}
+
+.menu-options li:last-child.active::before {
+    right: 0;
+    left: unset;
+    border: solid thin #fff;
+}
+
+.menu-options li:last-child.active i:first-child {
+  color: #fff;
+}
+
+.menu-options li:last-child.active {
+  background-color: chocolate;
+  border: solid 2px #fff;
+}
+
+body.active nav {
+  background-color: #313131;
+}
+
+body.active nav ul {
+  background-color: #313131;
+}
+
+body.active nav ul li a {
+  color: #cfcfcf;
+}
+
+body.active .header_info {
+  background-color: #2c2c2c;
+}
+
+body.active h4 {
+  color: #fdc21c;
+}
+
+body.active .descripcion {
+  color: #cfcfcf;
+}
+
+body.active main section:first-child {
+  background-color: #313131;
+}
+
+body.active main section:first-child article h4 {
+  color: #fff;
+}
+
+body.active main section:first-child article p{
+  color: #bdbdbd;
+}
+
+body.active main section:nth-child(2) {
+  background-color: #2c2c2c;
+}
+
+body.active main section:nth-child(2) > h4{
+  color: #fff;
+}
+
+body.active main section:nth-child(2) > p{
+  color: #bdbdbd;
+}
+
+.
