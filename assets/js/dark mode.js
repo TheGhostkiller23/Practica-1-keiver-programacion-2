@@ -1,25 +1,24 @@
-const swith = document.querySelector(".switch");
+const switcher = document.querySelector(".switch");
 
-
-document.addEventListener("DOMContentLoaded", e => {
-  cargarDarkModeDesdeLocalStorage()
-  swith.addEventListener("click", toggleDarkMode)
-})
+document.addEventListener("DOMContentLoaded", function(e) {
+  cargarDarkModeDesdeLocalStorage();
+  switcher.addEventListener("click", toggleDarkMode);
+});
 
 function toggleDarkMode() {
-    swith.classList.toggle("active");
+    switcher.classList.toggle("active");
     document.body.classList.toggle("active");
-    guardarDarkModeEnLocalStorage(swith.classList.contains("active"))
+    guardarDarkModeEnLocalStorage(switcher.classList.contains("active"));
 }
 
 function guardarDarkModeEnLocalStorage(estado) {
-    localStorage.setItem("darkMode", estado)
+    localStorage.setItem("darkMode", estado);
 }
 
 function cargarDarkModeDesdeLocalStorage() {
-  const darkModeGuardado = localStorage.getItem("darMode") == "true";
+  const darkModeGuardado = localStorage.getItem("darkMode") === "true";
   if (darkModeGuardado) {
-    swith.classList.add("active");
+    switcher.classList.add("active");
     document.body.classList.add("active");
   }
 }

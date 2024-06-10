@@ -187,12 +187,11 @@ legend{
   border: solid 2px #fff;
 }
 
-body.active nav {
-  background-color: #313131;
-}
-
-body.active nav ul {
-  background-color: #313131;
+/* Estilo para el modo oscuro */
+body.active {
+  background: #121212; /* Fallback para navegadores antiguos */
+  background: linear-gradient(to right, #242424, #121212); /* Gradiente oscuro */
+  color: #ccc;
 }
 
 body.active nav ul li a {
@@ -235,4 +234,5 @@ body.active main section:nth-child(2) > p{
   color: #bdbdbd;
 }
 
-.
+
+
