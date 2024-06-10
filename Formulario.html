@@ -53,14 +53,22 @@
         <i class='bx bxs-building-house' ></i>
             <input class="controls" type="text" name="Ubicacion de hab" id="Ubicacion de hab" placeholder="Ubicacion de hab">
         </label>
-        <label for="Fecha de nacimiento">Fecha de nacimiento</label>
+        <label for="Fecha de nacimiento">Fecha de nacimiento:</label>
         <i class='bx bxs-calendar'></i>
-            <input class="controls" type="text" name="Fecha de Nac" id="Fecha de Nac" placeholder="Fecha de Nac">
+        <input  class="controls" type="text" id="Fecha de nacimiento" name="Fecha de nacimientomin="2024-03" value="2024-05" placeholder="Fecha de Nac">
         </label>
-        <label for="Genero">Genero</label>
-            <i class='bx bx-male-female'></i>
-            <input class="controls" type="text" name="Genero" id="Genero" placeholder="Genero">
-        </label>
+        <form action="submit_form.php" method="post">
+            <p>
+                Genero:
+                <i class='bx bx-male-female'></i> 
+               <input type="radio" id="masculino" name="sexo" value="masculino">
+                <label for="masculino">Masculino</label>
+            </p>
+            <p>
+                <input type="radio" id="femenino" name="sexo" value="femenino">
+                <label for="femenino">Femenino</label>
+            </p>
+        </form>
         <label for="Contraseña">Contraseña</label>
             <i class='bx bxs-key' ></i>
             <input class="controls" type="text" name="Contraseña" id="Contraseña" placeholder="Ingrerse su contraseña">
