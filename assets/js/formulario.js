@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "login.html";
 
 
-       /*  Alertas de usuarios */
+       /*  ALERTAS DE USUARIOS */
 
          if (!Cedula || !/^\d+$/.test(Cedula)) {
             Swal.fire({
