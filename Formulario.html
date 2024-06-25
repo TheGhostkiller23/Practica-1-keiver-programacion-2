@@ -12,12 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>  
     <nav>
-        <span class="logo"><i class='bx bxl-medium'></i></span>
-        <button class="btn-menu"><i class='bx bx-menu'></i></button>
         <ul class="menu-options">
             <li class="switch">
                 <i class='bx bxs-sun' ></i>
@@ -28,54 +25,70 @@
 
     <section class="form-register">
         <h4>Formulario Registro</h4>
+        <!-- Campo de Usuario -->
+        <label for="Usuario">Usuario</label>
+        <i class='bx bxs-user'></i>
+        <input class="controls" type="text" name="Usuario" id="Usuario" placeholder="Usuario">
+        
+        <!-- Campo de Cedula -->
         <label for="Cedula">Cedula</label>
-            <i class='bx bxs-id-card'></i>
-            <input class="controls" type="text" name="Cedula" id="Cedula" placeholder="Cedula">
-        </label>
-        <label for="Nombre">Nombre</label>
-            <i class='bx bx-user'></i>
-            <input class="controls" type="text" name="Nombres" id="Nombres" placeholder="Ingrese su nombre">
-        </label>
-        <label for="Apellido">Apellido</label>
-            <i class='bx bx-user'></i>
-            <input class="controls" type="text" name="Apellidos" id="Apellidos" placeholder="Apellidos">
-        </label>
-        <label for="Correo electronico">Correo electronico</label>
-            <i class='bx bxs-envelope' ></i>
-            <input class="controls" type="email" name="CorreoElectronico" id="CorreoElectronico" placeholder="Ingrese su correo Electronico">
-        </label>
-        <label for="Ubicacion de hab">Ubicacion de hab</label>
+        <i class='bx bxs-id-card'></i>
+        <input class="controls" type="text" name="Cedula" id="Cedula" placeholder="Cedula">
+        
+        <!-- Campo de Nombres -->
+        <label for="Nombres">Nombres</label>
+        <i class='bx bx-user'></i>
+        <input class="controls" type="text" name="Nombres" id="Nombres" placeholder="Ingrese su nombre">
+        
+        <!-- Campo de Apellidos -->
+        <label for="Apellidos">Apellidos</label>
+        <i class='bx bx-user'></i>
+        <input class="controls" type="text" name="Apellidos" id="Apellidos" placeholder="Apellidos">
+        
+        <!-- Campo de Correo Electrónico -->
+        <label for="CorreoElectronico">Correo Electrónico</label>
+        <i class='bx bxs-envelope' ></i>
+        <input class="controls" type="email" name="CorreoElectronico" id="CorreoElectronico" placeholder="Ingrese su correo Electrónico">
+        
+        <!-- Campo de Ubicación -->
+        <label for="UbicacionHab">Ubicación</label>
         <i class='bx bxs-building-house' ></i>
-            <input class="controls" type="text" name="Ubicacion de hab" id="UbicacionHab" placeholder="Ubicacion de hab">
-        </label>
-        <label for="Fecha de nacimiento">Fecha de Nac:</label>
+        <input class="controls" type="text" name="UbicacionHab" id="UbicacionHab" placeholder="Ubicación">
+        
+        <!-- Campo de Fecha de Nacimiento -->
+        <label for="FechaDeNac">Fecha de Nacimiento</label>
         <i class='bx bxs-calendar'></i>
-        <input  class="controls" type="date" name="Fecha de Nac="2024-03" id="FechaDeNac" value="2024-05" placeholder="Fecha de Nac">
-        </label>
-        <form action="submit_form.php" method="post">
-            <p>
-                <label for="Genero">Genero</label>
-                <i class='bx bx-male-female'></i> 
-               <input type="radio" id="Genero" name="sexo" value="masculino" placeholder="Genero">
-                <label for="masculino">Masculino</label>
-            </p>
-            <p>
-                <input type="radio" id="Genero" name="sexo" value="femenino" placeholder="Genero">
-                <label for="femenino">Femenino</label>
-            </p>
-        </form>
+        <input class="controls" type="date" name="FechaDeNac" id="FechaDeNac" placeholder="Fecha de Nac">
+        
+        <!-- Campo de Género -->
+        <label for="Genero">Género</label>
+        <i class='bx bx-male-female'></i>
+        <select name="Genero" id="Genero">
+            <option value="">Seleccione...</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select>
+        
+        <!-- Campo de Contraseña -->
         <label for="Contraseña">Contraseña</label>
-            <i class='bx bxs-key' ></i>
-            <input class="controls" type="text" name="Contraseña" id="Contraseña" placeholder="Ingrerse su contraseña">
-        </label>
-        <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
-        <input class="botons" type="submit" value="Registrarse">
-        <p class="warnings" id="warnings"></p>
-        <a href="#"></a>
-        <p><a href="login.html">¿Ya tengo Cuenta?</a></p>
+        <i class='bx bxs-key' ></i>
+        <input class="controls" type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña">
+        
+        <!-- Campo de Confirmación de Contraseña -->
+        <label for="ConfirmarContraseña">Confirmar Contraseña</label>
+        <i class='bx bxs-lock-open'></i>
+        <input class="controls" type="password" name="ConfirmarContraseña" id="ConfirmarContraseña" placeholder="Confirmar Contraseña">
+        
+        <form action="submit_form.php" method="post">
+            <p class="warnings" id="warnings"></p>
+            <input class="botons" type="submit" value="Registrarse">
+        </form>
+        
+        <p><a href="login.html">¿Ya tienes cuenta?</a></p>
         <a href="./Formulario.html">Inicio</a>
-  </section>
-  <script src="./assets/js/formulario.js"></script>
-  <script src="assets/js/dark mode.js"></script>
+    </section>
+    <script src="./assets/js/formulario.js"></script>
+    <script src="assets/js/dark mode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

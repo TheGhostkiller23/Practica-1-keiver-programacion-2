@@ -1,67 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the submit button element
-    var botonSubmit = document.querySelector('.botons'); // Corrected class name
+    var botonSubmit = document.querySelector('.botons');
 
-    // Add an event listener to the submit button
     botonSubmit.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevents page reload
+        event.preventDefault();
 
-        // Gets the values entered by the user
+        var Usuario = document.getElementById('Usuario').value;
         var Cedula = document.getElementById('Cedula').value;
         var Nombres = document.getElementById('Nombres').value;
         var Apellidos = document.getElementById('Apellidos').value;
-        var CorreoElectronico = document.getElementById('CorreoElectronico').value; // Fixed ID name
-        var UbicacionHab = document.getElementById('UbicacionHab').value; // Fixed ID name
-        var FechaDeNac = document.getElementById('FechaDeNac').value; // Fixed ID name
+        var CorreoElectronico = document.getElementById('CorreoElectronico').value;
+        var UbicacionHab = document.getElementById('UbicacionHab').value;
+        var FechaDeNac = document.getElementById('FechaDeNac').value;
         var Genero = document.getElementById('Genero').value;
         var Contraseña = document.getElementById('Contraseña').value;
+        var ConfirmarContraseña = document.getElementById('ConfirmarContraseña').value;
 
-        // Validates input fields
-        if (!Cedula ||!/^\d+$/.test(Cedula)) {
+        // Validaciones
+        if (!Usuario ||!/^[A-Za-z0-9]*$/.test(Usuario) || Usuario.length > 12) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter a valid Cedula.',
+                text: 'Por favor ingrese un nombre de usuario válido.',
             });
             return;
         }
-        if (!Nombres) {
+        if (!Cedula ||!(/^\d+$/.test(Cedula) && Cedula.length >= 7 && Cedula.length <= 8)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter your Name.',
+                text: 'Por favor ingrese una cédula válida.',
             });
             return;
         }
-        if (!Apellidos) {
+        if (!Nombres ||!/^[A-Za-z\s]+$/.test(Nombres)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter your Last Name.',
+                text: 'Por favor ingrese un nombre válido.',
             });
             return;
         }
-        if (!CorreoElectronico ||!/\S+@\S+\.\S+/.test(CorreoElectronico)) {
+        if (!Apellidos ||!/^[A-Za-z\s]+$/.test(Apellidos)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter a valid email address.',
+                text: 'Por favor ingrese apellidos válidos.',
             });
             return;
         }
-        if (!UbicacionHab) {
+        if (!CorreoElectronico ||!(/\S+@\S+\.\S+/.test(CorreoElectronico))) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter your room location.',
+                text: 'Por favor ingrese un correo electrónico válido.',
             });
             return;
         }
-        if (!FechaDeNac) {
+        if (!UbicacionHab || UbicacionHab.length > 200) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter your birthdate.',
+                text: 'La ubicación debe tener hasta 200 caracteres.',
+            });
+            return;
+        }
+        if (!FechaDeNac || new Date(FechaDeNac) > new Date()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debe seleccionar una fecha de nacimiento anterior a la fecha actual.',
             });
             return;
         }
@@ -69,21 +76,24 @@ document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please select your Gender.',
-            });
-            return;
-        }
-        if (!Contraseña) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Please enter your Password.',
+                text: 'Por favor seleccione su género.',
             });
             return;
         }
 
-        // Creates a user object with the entered data
+        console.log(Contraseña, ConfirmarContraseña)
+        if (!Contraseña || Contraseña.length < 8 ||!(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\*_\/_]).{8,}$/.test(Contraseña)) || Contraseña!== ConfirmarContraseña) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'La contraseña debe tener al menos 8 caracteres, incluyendo un número, una letra mayúscula, una letra minúscula, y un carácter especial (*_, /). Además, debe coincidir con la confirmación.',
+            });
+            return;
+        }
+
+        // Crear objeto de usuario
         var userData = {
+            Usuario: Usuario,
             Cedula: Cedula,
             Nombres: Nombres,
             Apellidos: Apellidos,
@@ -94,14 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
             Contraseña: Contraseña
         };
 
-        console.log(FechaDeNac);
-        console.log(Contraseña);
-        console.log(userData);
-
-        // Stores the user object in Local Storage
+        // Almacenar el objeto de usuario en Local Storage
         localStorage.setItem(Nombres, JSON.stringify(userData));
 
-        // Redirects the user to the login page
-        window.location.href = "login.html";
+        // Mostrar mensaje de éxito
+        Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: 'Puedes iniciar sesión con tus nuevas credenciales.',
+            confirmButtonText: 'Ir a la página de inicio de sesión'
+        }).then(function(isConfirmed) {
+            if (isConfirmed.isConfirmed) {
+                window.location.href = "login.html";
+            }
+        });
     });
 });

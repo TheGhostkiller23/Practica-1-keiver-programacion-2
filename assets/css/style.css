@@ -8,9 +8,9 @@ body {
  justify-content: center;
   flex-direction: column;
   align-items: center;
-  background: #0575E6;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+  background: #e1ebf5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #dbdbdf, #82b8ee);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,  #dbdbdf, #82b8ee); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
  
 
   font-family: 'Poppins', sans-serif; 
@@ -23,17 +23,29 @@ body {
 
 }
 
+/* Cambiar el fondo del formulario de registro en modo oscuro */
+body.active.form-register {
+  background: #444; /* Color de fondo oscuro para el formulario de registro */
+  color: #fff; /* Color del texto blanco para mantener la legibilidad */
+}
+
+
 .form-register {
     width: 400px;
     background: #24303c;
     padding: 30px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 10px;
+    margin-bottom: 40px;
     border-radius: 4px;
     font-family: 'calibri';
     color: white;
     box-shadow: 7px 13px 37px #000;
-  }
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
   
 .form-login h4 {
     font-size: 22px;
@@ -154,13 +166,19 @@ legend{
 .switch {
     width: 60px;
     height: 30px;
-    padding: 0 5px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
     border: #333 solid 2px;
     background-color: #132b41;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .switch i {
@@ -198,7 +216,7 @@ legend{
 /* Estilo para el modo oscuro */
 body.active {
   background: #121212; /* Fallback para navegadores antiguos */
-  background: linear-gradient(to right, #242424, #121212); /* Gradiente oscuro */
+  background: linear-gradient(to right, #242424, #012242); /* Gradiente oscuro */
   color: #ccc;
 }
 
