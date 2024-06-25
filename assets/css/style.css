@@ -242,17 +242,6 @@ body.active main section:nth-child(2) > p{
   color: #bdbdbd;
 }
 
-portafolio 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-section {
-  min-height: 97vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .card {
   position: relative;
   width: 550px;

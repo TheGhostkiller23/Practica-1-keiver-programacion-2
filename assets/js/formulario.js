@@ -1,28 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Obtén el elemento del botón de envío
-    var botonSubmit = document.querySelector('.botons');
+    // Get the submit button element
+    var botonSubmit = document.querySelector('.botons'); // Corrected class name
 
-    // Añade un controlador de eventos al botón de envío
+    // Add an event listener to the submit button
     botonSubmit.addEventListener('click', function(event) {
-        event.preventDefault(); // Evita que se recargue la página
+        event.preventDefault(); // Prevents page reload
 
-        // Obtiene los valores ingresados por el usuario
+        // Gets the values entered by the user
         var Cedula = document.getElementById('Cedula').value;
         var Nombres = document.getElementById('Nombres').value;
         var Apellidos = document.getElementById('Apellidos').value;
-        var CorreoElectronico = document.getElementById('Correo electronico').value;
-        var UbicacionHab = document.getElementById('Ubicacion de hab').value;
-        var FechaDeNac = document.getElementById('Fecha de Nac').value;
+        var CorreoElectronico = document.getElementById('CorreoElectronico').value; // Fixed ID name
+        var UbicacionHab = document.getElementById('UbicacionHab').value; // Fixed ID name
+        var FechaDeNac = document.getElementById('FechaDeNac').value; // Fixed ID name
         var Genero = document.getElementById('Genero').value;
         var Contraseña = document.getElementById('Contraseña').value;
 
-        // Verifica si todos los campos están llenos
-        if (!cedula ||!nombres ||!apellidos ||!correoElectronico ||!ubicacionHab ||!fechaDeNac ||!genero ||!contraseña) {
-            alert('Por favor, completa todos los campos.');
-            return; // Detiene la ejecución si alguno de los campos está vacío
+        // Validates input fields
+        if (!Cedula ||!/^\d+$/.test(Cedula)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter a valid Cedula.',
+            });
+            return;
+        }
+        if (!Nombres) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter your Name.',
+            });
+            return;
+        }
+        if (!Apellidos) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter your Last Name.',
+            });
+            return;
+        }
+        if (!CorreoElectronico ||!/\S+@\S+\.\S+/.test(CorreoElectronico)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter a valid email address.',
+            });
+            return;
+        }
+        if (!UbicacionHab) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter your room location.',
+            });
+            return;
+        }
+        if (!FechaDeNac) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter your birthdate.',
+            });
+            return;
+        }
+        if (!Genero) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please select your Gender.',
+            });
+            return;
+        }
+        if (!Contraseña) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter your Password.',
+            });
+            return;
         }
 
-        // Crea un objeto con los datos del usuario
+        // Creates a user object with the entered data
         var userData = {
             Cedula: Cedula,
             Nombres: Nombres,
@@ -31,98 +91,17 @@ document.addEventListener('DOMContentLoaded', function() {
             UbicacionHab: UbicacionHab,
             FechaDeNac: FechaDeNac,
             Genero: Genero,
-            Contraseña: Contraseña // Considera almacenar solo una versión hash de la contraseña para seguridad real
+            Contraseña: Contraseña
         };
 
-        // Almacena el objeto en el Local Storage
-        localStorage.setItem(nombres, JSON.stringify(userData));
+        console.log(FechaDeNac);
+        console.log(Contraseña);
+        console.log(userData);
 
-        // Muestra un mensaje de confirmación
-        alert('Registro exitoso. Puedes iniciar sesión con tus nuevas credenciales.');
+        // Stores the user object in Local Storage
+        localStorage.setItem(Nombres, JSON.stringify(userData));
 
-
-
-        // Redirige al usuario a la página de inicio de sesión
+        // Redirects the user to the login page
         window.location.href = "login.html";
-
-
-       /*  ALERTAS DE USUARIOS */
-
-         if (!Cedula || !/^\d+$/.test(Cedula)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese una Cédula válida.',
-            });
-            return;
-        }
-
-        if (!Nombres) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese su Nombre.',
-            });
-            return;
-        }
-
-        if (!apellidos) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese sus apellidos.',
-            });
-            return;
-        }
-
-        if (!correoElectronico || !/\S+@\S+\.\S+/.test(correoElectronico)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese un correo electrónico válido.',
-            });
-            return;
-        }
-
-        if (!ubicacionHab) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese su ubicación de habitación.',
-            });
-            return;
-        }
-
-        if (!fechaDeNac) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese su fecha de nacimiento.',
-            });
-            return;
-        }
-
-        if (!Genero) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor seleccione su Genero.',
-            });
-            return;
-        }
-
-        if (!Contraseña) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Por favor ingrese su Contraseña.',
-            });
-            return;
-        }
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro exitoso',
-            text: 'Bienvenido.',
-        });
     });
+});

@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Verifica si las credenciales existen en el Local Storage
         if (localStorage.getItem(usuario)) {
             var credencialesAlmacenadas = JSON.parse(localStorage.getItem(usuario));
-            if (credencialesAlmacenadas.contraseña === contraseña) {
+            console.log(credencialesAlmacenadas);
+            if (credencialesAlmacenadas['Contraseña'] === contraseña) {
                 alert('Inicio de sesión exitoso');
                 // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
                 window.location.href = "curriculum.html"; // Ejemplo de redirección
